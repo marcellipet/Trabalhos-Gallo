@@ -1,0 +1,114 @@
+programa {
+  funcao inicio() {
+    inteiro escolhaUsuario
+    logico ranking[] = {JOGO}
+
+    escreva("1 - INICIAR JOGO\n")
+    escreva("2 - MOSTRAR TOP 10\n")
+    escreva("3 - ENCERRAR\n\n")
+
+    escreva("Escolha uma opção: ")
+    leia(escolhaUsuario)
+
+    escolha(escolhaUsuario) {
+      caso 1:
+        INICIAR_JOGO()
+      pare
+      caso 2:
+        escreva("Top 10:\n")
+      caso 3:
+        pare
+    }
+  }
+
+  funcao INICIAR_JOGO() {
+    se (questionar("É um mamífero?")) {
+      se (questionar("Anda com quatro patas?")) {
+        se (questionar("É carnívoro?")) {
+          escreva("É o Leão\n")
+        } senao {
+          se (questionar("É herbívoro?")) {
+            escreva("É o Cavalo\n")
+          } senao {
+            escreva("Não foi possível identificar\n")
+          }
+        }
+      } senao {
+        se (questionar("Anda com duas pernas?")) {
+          se (questionar("É onívoro?")) {
+            escreva("É o Homem\n")
+          } senao {
+            se (questionar("Come frutas?")) {
+              escreva("É o Macaco\n")
+            } senao {
+              escreva("Não foi possível identificar\n")
+            }
+          }
+        } senao {
+          se (questionar("Pode voar?")) {
+            escreva("É o Morcego\n")
+          } senao {
+            se (questionar("Vive na água?")) {
+              escreva("É a Baleia\n")
+            } senao {
+              escreva("Não foi possível identificar\n")
+            }
+          }
+        }
+      }
+    } senao {
+      se (questionar("É uma ave?")) {
+        se (questionar("Não voa?")) {
+          se (questionar("Pode voar?")) {
+            escreva("É o Avestruz\n")
+          } senao {
+            se (questionar("Vive na água?")) {
+              escreva("É o Pinguim\n")
+            } senao {
+              escreva("Não foi possível identificar\n")
+            }
+          }
+        } senao {
+          se (questionar("Nada bem?")) {
+            escreva("É o Pato\n")
+          } senao {
+            se (questionar("É de rapina?")) {
+              escreva("É a Águia\n")
+            } senao {
+              escreva("Não foi possível identificar\n")
+            }
+          }
+        }
+      } senao {
+        se (questionar("É réptil?")) {
+          se (questionar("Tem casco?")) {
+            escreva("É a Tartaruga\n")
+          } senao {
+            se (questionar("É carnívoro?")) {
+              escreva("É o Crocodilo\n")
+            } senao {
+              se (questionar("Não tem patas?")) {
+                escreva("É a Cobra\n")
+              } senao {
+                escreva("Não foi possível identificar\n")
+              }
+            }
+          }
+        } senao {
+          escreva("Não foi possível identificar\n")
+        }
+      }
+    }
+  }
+
+  funcao logico questionar(cadeia mensagem) {
+    caracter resp
+    escreva(mensagem, " (S/N): ")
+    leia(resp)
+    se (resp == 'S' ou resp == 's') {
+      retorne verdadeiro
+    } senao {
+      retorne falso
+    }
+  }
+}
